@@ -5,6 +5,6 @@ services:
     repo: https://github.com/Subbu-Laxmi/Portfolio
     branch: master              # or main
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn your_project_name.wsgi:application --bind 0.0.0.0:10000
+    startCommand: gunicorn portfolio.wsgi:application --bind 0.0.0.0:10000
     pullRequestPreviewsEnabled: true
     plan: free
