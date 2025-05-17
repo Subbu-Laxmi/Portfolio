@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: portfolio-site
+    repo: https://github.com/Subbu-Laxmi/Portfolio
+    branch: master               # Change to 'main' if you're using main branch
+    buildCommand: ""             # No build step for static sites
+    staticPublishPath: "/"      # Root directory
+    pullRequestPreviewsEnabled: true
