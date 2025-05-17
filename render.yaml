@@ -1,8 +1,9 @@
 services:
   - type: web
     name: portfolio-site
+    env: node
     repo: https://github.com/Subbu-Laxmi/Portfolio
-    branch: master               # or 'main' if that's your branch name
+    branch: master          # or main
     buildCommand: npm install
     startCommand: npm start
     pullRequestPreviewsEnabled: true
