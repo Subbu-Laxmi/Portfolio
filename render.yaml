@@ -3,8 +3,8 @@ services:
     name: portfolio-site
     env: node
     repo: https://github.com/Subbu-Laxmi/Portfolio
-    branch: master          # or main
-    buildCommand: npm install
-    startCommand: npm start
+    branch: master
+    buildCommand: cd portfolio && npm install
+    startCommand: cd portfolio && npm start
     pullRequestPreviewsEnabled: true
     plan: free
