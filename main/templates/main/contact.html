@@ -1,0 +1,139 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block styles %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #141e30, #243b55);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .contact-card {
+        background-color: #f8f9fa;
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 255, 170, 0.2);
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        animation: slideIn 1s ease-in-out;
+    }
+
+    .contact-card h2 {
+        color: #00ffc8;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .contact-card p {
+        font-size: 16px;
+        color: #ccc;
+        margin-bottom: 30px;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #f8f9fa ;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-size: 16px;
+        color: #ccc;
+        transition: color 0.3s ease;
+    }
+
+    .info-item i {
+        color: #00ffc8;
+        font-size: 18px;
+    }
+
+    .info-item a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .info-item:hover {
+        color: #00ffc8;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 500px) {
+        .contact-card {
+            padding: 30px 20px;
+        }
+
+        .contact-card h2 {
+            font-size: 22px;
+        }
+
+        .info-item {
+            font-size: 15px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-card">
+    <h2>I'd love to hear from you! 💬</h2>
+    <p>Feel free to reach out through email, or connect with me on LinkedIn. Whether you have a question, suggestion, or just want to connect, I'm always happy to chat!</p>
+    <br>
+    <div class="contact-info">
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+        </div>
+        <br>
+    </div>
+    <h3 style="background-color: #f8f9fa;border-radius: 15px; padding: 25px 30px;box-shadow: 0 6px 15px rgba(0,0,0,0.3); "> Social Links <br>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 1.2rem;background-color: #f8f9fa;border-radius: 15px; padding: 25px 30px;box-shadow: 0 6px 15px rgba(0,0,0,0.3); ">
+        <a href="https://www.linkedin.com/in/subbu-laxmi-889947318/"
+                    target="_blank" rel="noopener noreferrer"
+                    style="color:#0077B5; text-decoration: none;">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a> <br>
+                <a href="https://leetcode.com/u/Subbu_Laxmi_L/" target="_blank"
+                    rel="noopener noreferrer"
+                    style="color:#FFA116; text-decoration: none;">
+                    <i class="fas fa-code"></i> LeetCode
+                </a> <br>
+
+                <a href="https://www.hackerrank.com/profile/lsubbulaxmi802"
+                    target="_blank" rel="noopener noreferrer"
+                    style="color:#2EC866; text-decoration: none;">
+                    <i class="fas fa-terminal"></i> HackerRank
+                </a> <br>
+                <a href="https://github.com/Subbu-Laxmi/" target="_blank"
+                    rel="noopener noreferrer"
+                    style="color:#333; text-decoration: none;">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </p>
+        </div>
+    </h3> 
+</div>
+{% endblock %}

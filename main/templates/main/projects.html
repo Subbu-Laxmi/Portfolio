@@ -1,0 +1,138 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block styles %}
+<style>
+    body {
+        background-color: #f0f2f5;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+        margin-top: 50px;
+        max-width: 900px;
+    }
+
+    .carousel-item {
+        background: linear-gradient(135deg, #ffffff, #e9f0ff);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.1);
+        min-height: 280px;
+    }
+
+    .carousel-item:hover {
+        background: linear-gradient(135deg, #d0e2ff, #aac8ff);
+        box-shadow: 0 20px 30px rgba(0, 123, 255, 0.3);
+        transform: translateY(-5px);
+        background-color: #444;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+
+    .project-title {
+        font-size: 1.7rem;
+        color: #004085;
+        font-weight: 700;
+        margin-bottom: 15px;
+        border-left: 6px solid #007bff;
+        padding-left: 12px;
+        letter-spacing: 0.04em;
+    }
+
+    .project-description {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .project-tech {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .project-link a {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-link a:hover {
+        background-color: #004085;
+        box-shadow: 0 8px 25px rgba(0, 64, 133, 0.7);
+    }
+    .carousel-indicators{
+        background-color: black;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            margin: 20px 15px;
+            max-width: 100%;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+        }
+
+        .project-link a {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-5" style="color:black;">Personal Projects</h2>
+    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+            {% for project in projects %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="project-box" style="background-color: #444; border-radius: 15px; padding: 25px 30px;box-shadow: 0 6px 15px rgba(0,0,0,0.3); color: white;">
+                <h4 class="project-title">{{ project.title }}</h4>
+                <p class="project-description">{{ project.description }}</p>
+                <p class="project-tech"><b>Technologies used:</b> {{ project.tech }}</p>
+                <div class="project-link">
+                    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" aria-label="View {{ project.title }} project">View Project</a>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+    <div class="carousel-indicators"style="background-color: #444; margin-bottom:2px">
+        {% for project in projects %}
+        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %} aria-current="true" aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div> 
+</div> 
+<div>
+    </div>
+    
+    <p class="text-center mt-3" style="color:#666; font-style: italic; font-size: 0.9rem;">
+        Swipe or click the arrows to see more projects
+      </p>
+</div>
+</div>
+
+{% endblock %}

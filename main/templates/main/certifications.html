@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Certifications{% endblock %}
+
+{% block styles %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Certifications</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for cert in certifications %}
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cert.name }}</h5>
+                    <p class="card-text"><strong>Issuer:</strong> {{ cert.issuer }}</p>
+                    <p class="card-text"><strong>Issued:</strong> {{ cert.issued_at }}</p>
+                    <a href="{{ cert.link }}" class="btn btn-primary" target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2 class="text-center mt-5">Workshops I Attended</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-3">
+        {% for ws in workshops %}
+        <div class="col">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ws.title }}</h5>
+                    <p class="card-text"><strong>Date:</strong> {{ ws.date }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+</div>
+{% endblock %}
