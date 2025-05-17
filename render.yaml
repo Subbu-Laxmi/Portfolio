@@ -1,10 +1,10 @@
 services:
   - type: web
     name: portfolio-site
-    env: node
+    env: python
     repo: https://github.com/Subbu-Laxmi/Portfolio
-    branch: master
-    buildCommand: cd portfolio && npm install
-    startCommand: cd portfolio && npm start
+    branch: master              # or main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn your_project_name.wsgi:application --bind 0.0.0.0:10000
     pullRequestPreviewsEnabled: true
     plan: free
